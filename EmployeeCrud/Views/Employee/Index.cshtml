@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EmployeeCrud.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+
+
+<div class="container">
+    <div class="row fw-bolder active">
+        <div class="col">
+            @* @Html.DisplayNameFor(model => model.Name)*@
+            Employee Name
+        </div>
+        <div class="col">
+            Designation
+        </div>
+        <div class="col">
+            Address
+        </div>
+        <div class="col">
+            Created Date
+        </div>
+        <div class="col">
+           Action
+        </div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+
+
+        <div class="row">
+            <div class="col">
+                @item.Name
+            </div>
+            <div class="col">
+                @item.Designation
+                @*@Html.DisplayFor(modelItem => item.Designation)*@
+            </div>
+            <div class="col">
+               @item.Address
+            </div>
+            <div class="col">
+              @item.RecordCreatedOn
+            </div>
+            <div class="col">
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
